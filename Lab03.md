@@ -22,7 +22,7 @@ Connecting to the real-time tweets API requires keeping a persistent HTTP connec
 The Real-time tweets API is one of the favorite ways of getting a massive amount of data without exceeding the rate limits. If you intend to conduct singular searches, read user profile information, or post Tweets, consider using the REST APIs instead.
 
 We need to extend the `StreamListener()` class to customize the way we process the incoming data. We will base our explanation on a working example (from [Marco Bonzanini](https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/)) that gathers all the new tweets with the "ArtificialIntelligence" content:
-```
+```python
 import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -73,7 +73,7 @@ We can leave the previous program running in the background fetching tweets whil
 
 Let's then go and read the file with all tweets to be sure that everything is correct:
 
-```
+```python
 import json
 
 with open('ArtificialIntelligenceTweets.json','r') as json_file:
@@ -84,7 +84,7 @@ with open('ArtificialIntelligenceTweets.json','r') as json_file:
 
 We are now ready to start to tokenize all these tweets:
 
-```
+```python
 import json
 
 with open('ArtificialIntelligenceTweets.json', 'r') as f:
@@ -94,7 +94,7 @@ with open('ArtificialIntelligenceTweets.json', 'r') as f:
 ```
 Now, if we want to process all our tweets, previously saved on file:
 
-```
+```python
 with open('ArtificialIntelligenceTweets.json', 'r') as f:
     for line in f:
         tweet = json.loads(line)
@@ -103,7 +103,7 @@ with open('ArtificialIntelligenceTweets.json', 'r') as f:
 ```
 Remember that `preprocess` have been defined in the previous Lab in order to capture Twitter-specific aspects of the text, such as #hashtags, @-mentions and URLs.:
 
-```
+```python
 import re
 
 emoticons_str = r"""
@@ -140,7 +140,7 @@ def preprocess(s, lowercase=False):
  ```
 In order to keep track of the frequencies while we are processing the tweets, we can use `collections.Counter()` which internally is a dictionary (term: count) with some useful methods like `most_common()`:
 
- ```
+ ```python
 import operator
 import json
 from collections import Counter
@@ -159,7 +159,7 @@ with open(fname, 'r') as f:
 ```
 As you can see, the above code produces words (or tokens) that are stop words. Given the nature of our data and our tokenization, we should also be careful with all the punctuation marks and with terms like `RT` (used for re-tweets) and `via` (used to mention the original author), which are not in the default stop-word list.
 
-```
+```python
 import nltk
 from nltk.corpus import stopwords
 nltk.download("stopwords") # download the stopword corpus on our computer
@@ -172,7 +172,7 @@ stop = stopwords.words('english') + punctuation + ['rt', 'via', 'RT']
 
 We can now substitute the variable `terms_all` in the first example with something like:
 
-```
+```python
 import operator
 import json
 from collections import Counter
@@ -191,12 +191,12 @@ with open(fname, 'r') as f:
 
 Besides stop-word removal, we can further customize the list of terms/tokens of our interest.
 For instance, if we want to count *hastags* only by using:
-```
+```python
 terms_hash = [term for term in preprocess(tweet['text'])
               if term.startswith('#')]
 ```
 In the case we are interested to count terms only, no hashtags and no mentions:
-```
+```python
 terms_only = [term for term in preprocess(tweet['text'])
               if term not in stop and
               not term.startswith(('#', '@'))]
@@ -220,7 +220,7 @@ Create a program at `TwitterAnalyzer.py` that reads **only once** the `.json` fi
 At "[Racó (course intranet)](https://raco.fib.upc.edu/)" you can find a small dataset as an example (please do not distribute due to Twitter licensing). This dataset contains 1060 tweets downloaded from around 18:05 to 18:15  on January 13. We used "Barcelona" as a `track` parameter at `twitter_stream.filter` function. Save the file in your folder but do not add it to the git repository.
 
 We would like to get a rough idea of what was telling people about Barcelona. For example, we can count and sort the most commonly used hashtag:
-```
+```python
 fname = 'Lab3.CaseStudy.json'
 with open(fname, 'r') as f:
     count_all = Counter()
@@ -238,7 +238,7 @@ The output is (ordering may differ):
 
 To see a more visual description we can plot it. There are different options to create plots in Python using libraries such as [**matplotlib**](https://matplotlib.org/) or [**ggplot**](http://ggplot.yhathq.com/). We have decided to use matplotlib and the following code:
 
-```
+```python
 import matplotlib as mpl
 mpl.rcParams['figure.figsize'] = (6,6)
 import matplotlib.pyplot as plt
