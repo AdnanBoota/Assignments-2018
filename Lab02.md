@@ -44,13 +44,13 @@ Note that you will need a Twitter account to log in, create an app, and get thes
 One of the most popular packages in Python for NLP (Natural Language Processing) is Natural Language Toolkit ([NLTK](http://www.nltk.org). This toolkit provides a friendly interface for many of the basic NLP tasks, as well as lexical resources and linguistic data.
 
 Tokenisation is one of the most basic, yet most important, steps in text analysis required for the following task. The purpose of tokenization is to split a stream of text into smaller units called tokens, usually words or phrases. For this purpose we will use the [NLTK](http://www.nltk.org) Python Natural Language Processing Toolkit:
-```
+```python
 import nltk
 ```
 A difference between NLTK and many other packages is that this framework also comes with linguistic data for specific tasks. Such data is not included in the default installation, due to its big size, and requires a separate download. Therefore, after importing NLTK, we'll need to download NLTK Data which includes a lot of corpora, grammars, models, etc. You can find the complete nltk data list [here](http://nltk.org/nltk_data/). You can download all nltk resources using `nltk.download('all')` but it takes ~3.5G. For English text, we could use `nltk.download('punkt')` to download the NLTK data package that includes a pre-trained tokenizer for English.
 
 Let’s see the example using the NLTK to tokenize the book [First Contact with TensorFlow](http://www.jorditorres.org/Tensorflow) [`FirstContactWithTensorFlow.txt`](./FirstContactWithTensorFlow.txt) available for download at this GitHub and outputs the ten most common words in the book.
-```
+```python
 import nltk
 nltk.download('punkt') 
 import re
@@ -73,7 +73,7 @@ Create a file named `WordCountTensorFlow_1.py`, that computes and prints the 10 
 ### Task 2.1.2: Remove punctuation
 We can remove the punctuation, inside get_tokens(), by applying a regular expression:
 
-```
+```python
     lowers = text.lower()
     no_punctuation = re.sub(r'[^\w\s]','',lowers)
     tokens = nltk.word_tokenize(no_punctuation)
@@ -84,7 +84,7 @@ Create a new file named `WordCountTensorFlow_2.py` that computes and prints the 
 Is it not "Tensorflow" the most frequent word? Why? Which are the Stop Words? Include your answers in `README.md`.
 
 When we work with text mining applications, we often hear of the term “Stop Word Removal." We can do it using the same `nltk` package: 
-```
+```python
 from nltk.corpus import stopwords
 
 tokens = get_tokens()
@@ -122,19 +122,19 @@ Since we are using Python, to interact with the Twitter APIs, we need a Python c
 
 One easy way to install the latest version is by using pip/easy_install to pull it from [PyPI](https://pypi.python.org/pypi) to your local directory:
 
-```
+```bash
 _$ pip install tweepy
 ```
 
 Tweepy is also available from [conda forge](https://conda-forge.org/feedstocks/):
 
-```
+```bash
 _$ conda install -c conda-forge tweepy
 ```
 
 You may also want to use Git to clone the repository from Github and install it manually:
 
-```
+```bash
 _$ git clone https://github.com/tweepy/tweepy.git
 _$ cd tweepy
 _$ python setup.py install
@@ -142,7 +142,7 @@ _$ python setup.py install
 
 Create a file named `Twitter_1.py` and include the code to access Twitter on our behalf. We need to use the OAuth interface:
 
-```
+```python
 import tweepy
 from tweepy import OAuthHandler
  
@@ -163,7 +163,7 @@ Tweepy provides Python access to the well documented [**REST Twitter API**](http
 Using tweepy, it's possible to retrieve objects of any type and use any method that the official Twitter API offers. 
 
 To be sure that everything is correctly installed print the main information of your Twitter account. After creating the `User` object, the `me()` method returns who is the authenticated user:
-```
+```python
 user = api.me()
  
 print('Name: ' + user.name)
@@ -177,29 +177,30 @@ Is the data printed correctly? Is it yours? Add your answers to `README.md`.
 ### Task 2.2.2: Accessing Tweets
 Tweepy provides the convenient `Cursor` interface to iterate through different types of objects. For example, we can read our own Twitter home timeline using the code below.
 
-```
+```python
 # we use 1 to limit the number of tweets we are reading 
 # and we only access the `text` of the tweet
 for status in tweepy.Cursor(api.home_timeline).items(1):
     print(status.text) 
 ```
 The `status` variable is an instance of the `Status()` class, a nice wrapper to access the tweet data. The JSON response from the Twitter API is available at the attribute _json (with a leading underscore), which is not the raw JSON string, but a dictionary.
-```
+```python
 import json
 
 for status in tweepy.Cursor(api.home_timeline).items(1):
     print(json.dumps(status._json, indent=2))
     
 ```
-What if we wanted to have a list of 10 of our friends? 
-```
+What if we wanted to have a list of 10 of our friends?
+ 
+```python
 for friend in tweepy.Cursor(api.friends).items(1):
     print(json.dumps(friend._json, indent=2))
 
 ```
 And how about a list of some of our tweets?
 
-```
+```python
 for tweet in tweepy.Cursor(api.user_timeline).items(1):
     print(json.dumps(tweet._json, indent=2))
 ```    
@@ -237,7 +238,7 @@ We will focus on looking for the text of a tweet and breaking it down into words
 Let’s see an example using the NLTK package previously used to tokenize a fictitious tweet:
 
 
-```
+```python
 from nltk.tokenize import word_tokenize
 
 tweet = 'RT @JordiTorresBCN: just an example! :D http://JordiTorres.Barcelona #masterMEI'
