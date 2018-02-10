@@ -1,0 +1,1 @@
+# Lab session 6: Interacting with users and services in the Cloud
