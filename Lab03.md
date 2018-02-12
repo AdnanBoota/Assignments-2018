@@ -256,7 +256,7 @@ plt.savefig('CaseStudy.png')     # save it on a file
 ```
 that uses the function `zip()`. We obtain the following plot:
 
-<p align="center"><img src="./images/Lab3Plot.png " alt="Lab3Plot" title="lab3Plot"/></p>
+<p align="center"><img src="./images/Lab03-Plot.png " alt="Lab03-Plot" title="lab03-Plot"/></p>
 
 We can see that people were talking about football, more than other things! And it seems that they were mostly talking about the football [league match played the day after](http://www.fcbarcelonanoticias.com/Calendario-y-resultados-liga.php?IDR=184).
 
