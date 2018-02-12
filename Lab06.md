@@ -245,7 +245,7 @@ twitter_stream.filter(locations=[-2.5756, 39.0147, 5.5982, 43.957])
 
 In the above program have used a different way of filtering tweets: a geo bonding box. You can [select your favorite geo bounding box](http://boundingbox.klokantech.com/) using a web app made by [Klokan Technologies](https://www.klokantech.com/): choose CSV format, draw your bounding box, copy the coordinates and start listening.
 
-<p align="center"><img src="./images/Lab6-BoundingBox.png" alt="Bounding box for Barcelona Area" title="Bounding box for Barcelona Area"/></p>
+<p align="center"><img src="./images/Lab06-BoundingBox.png" alt="Bounding box for Barcelona Area" title="Bounding box for Barcelona Area"/></p>
 
 Going back to our dear Django web app, we will add a new view 'map'.
 
@@ -354,9 +354,9 @@ Now, using the Leaflet.js Javascript library for interactive maps, we can create
 ```
 Just execute the web app locally http://127.0.0.1:8000/map, and you will see something like:
 
-<p align="center"><img src="./images/Lab6map1.png" alt="Tweets in Barcelona City" title="Tweets in Barcelona City"/></p>
+<p align="center"><img src="./images/Lab06-map1.png" alt="Tweets in Barcelona City" title="Tweets in Barcelona City"/></p>
 
-<p align="center"><img src="./images/Lab6map2.png" alt="Tweets in Europe" title="Tweets in Europe"/></p>
+<p align="center"><img src="./images/Lab06-map2.png" alt="Tweets in Europe" title="Tweets in Europe"/></p>
 
 #### Questions
 
