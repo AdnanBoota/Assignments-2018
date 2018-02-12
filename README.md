@@ -14,7 +14,7 @@ Students will begin by creating an essential toolbox to get them started in the 
 - Lab 2: [Doors in the Cloud][Lab2]              
 - Lab 3: [Extracting and Analyzing data from the Cloud][Lab3]          
 - Lab 4: [Creating a web application using cloud PaaS][Lab4]  
-- Lab 5: [Enhancing your web app using more cloud services][Lab5]
+- Lab 5: [Enhancing your web app using additional cloud services][Lab5]
 - Lab 6: [Interacting with users and services in the Cloud][Lab6]
 - Lab 7: [Extracting and Analyzing data using Elastic Search and Kibana][Lab7]
 

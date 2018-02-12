@@ -1,1 +1,1 @@
-# Lab session #5: Enhancing your web app using more cloud services
+# Lab session #5: Enhancing your web app using additional cloud services
