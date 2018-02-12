@@ -1,1 +1,1 @@
-Extracting and Analyzing data using Elastic Search and Kibana
+# Lab session 7: Extracting and Analyzing data using Elastic Search and Kibana
