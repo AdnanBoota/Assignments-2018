@@ -1,0 +1,1 @@
+# Lab session 8: Web scaping
