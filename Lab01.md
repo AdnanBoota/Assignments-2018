@@ -19,7 +19,7 @@ Install Python on your laptop.
 
 For these lab sessions we advice you to create a new anaconda environment using the bare minimum amount of Python packages. You will be adding more packages as you need them later.
 
-Once the new environment is set you can hoover and see the path where the python interpreter and the packages have been installed.
+Once the new environment is set you can hover and see the path where the python interpreter and the packages have been installed.
 
 <p align="center"><img src="./images/Lab01-AnacondaEnviron.png " alt="Lab05-1" title="New Anaconda Environment"/></p>
 
