@@ -27,7 +27,7 @@ You can also open a terminal and examine your new environment.
 
  <p align="center"><img src="./images/Lab01-AnacondaTerminal.png " alt="Lab05-1" title="Anaconda terminal"/></p>
 
-Some unix commands also work in windows:
+Using the Anaconda terminal, some unix commands also work in MS-Windows:
 
 ```bash
 (CCBDA_UPC) C:\prompt> which python
